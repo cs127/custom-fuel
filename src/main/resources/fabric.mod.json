@@ -3,15 +3,19 @@
 	"id": "custom_fuel",
 	"version": "${version}",
 	"name": "Custom Fuel",
-	"description": "makes furnace fuels customizable",
+	"description": "makes furnace fuel items configurable",
 	"authors": ["cs127"],
-	"contact": {},
+	"contributors": ["frost"],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/custom-fuel",
+		"sources": "https://github.com/cs127/custom-fuel",
+		"issues": "https://github.com/cs127/custom-fuel/issues"
+	},
 	"license": "MIT",
 	"icon": "assets/custom_fuel/icon.png",
 	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"io.github.cs127.custom_fuel.CustomFuel"
-		]
+	"entrypoints": {"main": ["io.github.cs127.custom_fuel.CustomFuel"]},
+	"depends": {
+		"fabric-api": "*"
 	}
 }
