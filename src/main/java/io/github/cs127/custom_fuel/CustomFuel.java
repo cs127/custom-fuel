@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
 public class CustomFuel implements ModInitializer {
@@ -29,7 +30,12 @@ public class CustomFuel implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		File configFile = new File(FabricLoader.getInstance().getConfigDir() + "/custom_fuel.json");
-		config = CustomFuelConfig.getConfig(configFile);
+
+		try {
+			config = CustomFuelConfig.getConfig(configFile);
+		} catch (RuntimeException | IOException e) {
+			LOGGER.error("could not create or read config file", e);
+		}
 
 		FuelRegistryEvents.EXCLUSIONS.register((builder, context) -> {
 			for (Map.Entry<String, Integer> entry : config.include.entrySet()) {

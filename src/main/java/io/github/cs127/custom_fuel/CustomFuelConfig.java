@@ -16,24 +16,16 @@ public class CustomFuelConfig {
 	public Map<String, Integer> include = Collections.emptyMap();
 	public Set<String> exclude = Collections.emptySet();
 
-	public static CustomFuelConfig getConfig(File file) {
+	public static CustomFuelConfig getConfig(File file) throws IOException {
 		CustomFuelConfig config;
 
-		try {
-			// create a config file if there isn't one
-			file.createNewFile();
-		} catch (IOException e) {
-			throw new RuntimeException("failed to make config file", e);
-		}
+		// create a config file if there isn't one
+		file.createNewFile();
 
-		try {
-			FileInputStream stream = new FileInputStream(file);
-			InputStreamReader reader = new InputStreamReader(stream);
+		FileInputStream stream = new FileInputStream(file);
+		InputStreamReader reader = new InputStreamReader(stream);
 
-			config = GSON.fromJson(reader, CustomFuelConfig.class);
-		} catch (IOException e) {
-			throw new RuntimeException("failed to load config file", e);
-		}
+		config = GSON.fromJson(reader, CustomFuelConfig.class);
 
 		if (config == null) config = new CustomFuelConfig();
 
