@@ -35,6 +35,7 @@ public class CustomFuel implements ModInitializer {
 			config = CustomFuelConfig.getConfig(configFile);
 		} catch (RuntimeException | IOException e) {
 			LOGGER.error("could not create or read config file", e);
+			return;
 		}
 
 		FuelRegistryEvents.EXCLUSIONS.register((builder, context) -> {
