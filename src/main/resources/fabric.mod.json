@@ -1,0 +1,17 @@
+{
+	"schemaVersion": 1,
+	"id": "custom_fuel",
+	"version": "${version}",
+	"name": "Custom Fuel",
+	"description": "makes furnace fuels customizable",
+	"authors": ["cs127"],
+	"contact": {},
+	"license": "MIT",
+	"icon": "assets/custom_fuel/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"io.github.cs127.custom_fuel.CustomFuel"
+		]
+	}
+}
