@@ -16,6 +16,7 @@
 	"environment": "*",
 	"entrypoints": {"main": ["io.github.cs127.custom_fuel.CustomFuel"]},
 	"depends": {
+		"minecraft": "~1.21.2",
 		"fabric-api": "*"
 	}
 }
